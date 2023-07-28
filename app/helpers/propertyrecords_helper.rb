@@ -1,0 +1,2 @@
+module PropertyrecordsHelper
+end

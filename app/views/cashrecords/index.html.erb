@@ -1,0 +1,69 @@
+<h1>Cash Records</h1>
+
+<div class= "container">
+
+  <div class="row">
+    <div class="col">
+      <%= button_to "Cash-In", propertyrecord_cashin_path(propertyrecord_id: @propertyrecord.id), method: :get, class: "btn btn-secondary" %><br>
+
+      <h2>Cash-In Records</h2>
+      <div class= "row">
+              <div class= "col">
+                <strong>Category:</strong><br>
+              </div>
+              <div class= "col">
+                <strong>Amount:</strong><br>
+              </div>
+              <div class= "col">
+                <strong>Notes:</strong><br>
+              </div>
+          </div>
+        <% @cashrecords.each do |cash_record| %>
+          <% if cash_record.transaction_type == "cash_in" %>
+            <div class= "row">
+              <div class= "col">
+                <%= cash_record.category %>
+              </div>
+              <div class= "col">
+                <%= cash_record.amount %>
+              </div>
+              <div class= "col">
+                <%= cash_record.notes %>
+              </div>
+          </div>
+        <% end %>  
+      <% end %>
+    </div>
+
+    <div class="col">
+      <%= button_to "Cash-Out", cashout_path, method: :get, class: "btn btn-secondary" %><br>
+        <h2>Cash-Out Records</h2>
+        <div class= "row">
+              <div class= "col">
+                <strong>Category:</strong><br>
+              </div>
+              <div class= "col">
+                <strong>Amount:</strong><br>
+              </div>
+              <div class= "col">
+                <strong>Notes:</strong><br>
+              </div>
+          </div>
+          <% @cashrecords.each do |cash_record| %>
+            <% if cash_record.transaction_type == "cash_out" %>
+              <div class= "row">
+                <div class= "col">
+                  <%= cash_record.category %>
+                </div>
+                <div class= "col">
+                  <%= cash_record.amount %>
+                </div>
+                <div class= "col">
+                  <%= cash_record.notes %>
+                </div>
+            </div>
+            <% end %>  
+          <% end %>  
+    </div>
+  </div>
+</div>

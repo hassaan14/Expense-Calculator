@@ -1,0 +1,27 @@
+<head>
+<%= stylesheet_link_tag 'propertyrecord' %>
+
+</head>
+<h1>Expense Calculator</h1>
+
+<div class= "container">
+<h2>List Property Records</h2><br>
+
+<div class="row">
+
+<div class="col">
+<ul class="property_list">
+    <% @propertyrecords.each do |property| %>
+        <li class="property_item">
+        <%= link_to property.name, property, class: "property_link" %>
+    </li>
+    <% end %>
+</ul>
+</div>
+
+<div class="col">
+    <%= button_to "Add New Property", new_propertyrecord_path, method: :get, 
+    class: "btn btn-secondary" %><br>
+
+</div>
+</div>

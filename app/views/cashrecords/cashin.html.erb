@@ -1,0 +1,30 @@
+<%= form_with model: [ @propertyrecord, @propertyrecord.cashrecords.build ] do |form| %>
+<h1>Cash In Record Form</h1>
+<div class="container">
+
+<div>
+    <%= form.label :category %><br>
+    <%= form.select :category, ['Rent Received', 'Business Profit', 'Salary', 'Others'],
+    class: "form_selector", required: true %>
+  </div>
+
+  <div>
+    <%= form.label :amount %><br>
+    <%= form.number_field :amount %>
+  </div>
+  
+  <div>
+    <%= form.label :notes %><br>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :transaction_type, value: "cash_in" %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit Cash-in",  class: "btn btn-success" %>
+  </div>
+
+<% end %>
+</div>

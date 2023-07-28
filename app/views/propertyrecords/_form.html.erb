@@ -1,0 +1,22 @@
+<%= form_with model: property do |form| %>
+  <div class="container">
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+  
+  <div>
+    <%= form.label :notes %><br>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div>
+    <%= form.submit  class: "btn btn-success"%>
+  </div>
+  </div>
+<% end %>

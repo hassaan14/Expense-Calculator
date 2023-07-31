@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   get 'cashout', to: 'cashrecords#cashout'
   post 'cashout', to: 'cashrecords#create_cashout'
+  delete '/cashout/:id', to: 'cashrecords#destroy_cashout'
 
 end

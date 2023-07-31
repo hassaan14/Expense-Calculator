@@ -4,26 +4,36 @@
 
 <div class= "row">
 <div class= "col">
-
 <h3>Description</h3>
 <p><%= @propertyrecord.description %></p>
+</div>
+<div class= "col">
 <h3>Notes</h3>
 <p><%= @propertyrecord.notes %></p>
 </div>
 <div class= "col">
 <%= button_to "Edit", edit_propertyrecord_path(@propertyrecord), method: :get,
 class: "btn btn-secondary" %><br>
-
+</div>
+<div class= "col">
 <%= button_to "Delete", propertyrecord_path(@propertyrecord), method: :delete, 
 class: "btn btn-danger",
 data: { turbo_confirm: "Are you sure?" } %><br>
+</div>
+</div>
+
+<div class= "row">
+<div class= "col">
+<h2>Cash In Record</h2>
+</div>
+<div class= "col d-flex justify-content-between">
+<%= button_to "Cash-In", propertyrecord_cashin_path(propertyrecord_id: @propertyrecord.id),
+  method: :get, class: "btn btn-primary" %>
 
 <%= button_to "Cash_Record", propertyrecord_cashrecords_path(propertyrecord_id: @propertyrecord.id),
-method: :get, class: "btn btn-secondary" %>
-
+method: :get, class: "btn btn-secondary" %><br>
 </div>
-</div>
-<h2>Cash In Record</h2>
+</div><br>
 <% @propertyrecord.cashrecords.each do |cash_record| %>
 <% if cash_record.transaction_type == "cash_in" %>
 <div class= "row">
@@ -39,6 +49,11 @@ method: :get, class: "btn btn-secondary" %>
   <div class= "col">
     <strong>Notes:</strong>
     <%= cash_record.notes %>
+  </div>
+  <div class=" col ">
+    <%= button_to "Delete", [cash_record.propertyrecord, cash_record], 
+    method: :delete, data: { turbo_confirm: "Are you sure?" }, 
+    class: "btn btn-danger" %><br>
   </div>
   </div>
 <% end %>

@@ -22,7 +22,6 @@ class PropertyrecordsController < ApplicationController
       redirect_to @propertyrecord, notice: "Propertyrecord was successfully created."
     else
       puts "no save"
-
       @propertyrecords = Propertyrecord.all
       render :index, status: :unprocessable_entity
     end
@@ -45,7 +44,6 @@ class PropertyrecordsController < ApplicationController
   def destroy
     @propertyrecord = Propertyrecord.find(params[:id])
     @propertyrecord.destroy
-
     redirect_to root_path, status: :see_other
   end
   

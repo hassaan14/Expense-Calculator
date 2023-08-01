@@ -43,7 +43,6 @@ class CashrecordsController < ApplicationController
   end  
 
   def destroy_cashout
-    puts "delete cashout"
     @cashrecord = Cashrecord.find(params[:id])
     @cashrecord.destroy
     redirect_to root_path, status: :see_other

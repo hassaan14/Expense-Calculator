@@ -1,22 +1,21 @@
 <h1>Cash Records</h1>
 
-<div class= "container">
+<div class= "container-fluid">
 
   <div class="row">
     <div class="col">
       <h2>Cash-In Records</h2>
       <div class= "row">
               <div class= "col">
-                <strong>Category:</strong><br>
+                <strong>Category:</strong>
               </div>
               <div class= "col">
-                <strong>Amount:</strong><br>
+                <strong>Amount:</strong>
               </div>
               <div class= "col">
-                <strong>Notes:</strong><br>
+                <strong>Notes:</strong>
               </div>
               <div class= "col">
-                <strong>Delete</strong><br>
               </div>
           </div><br>
         <% @cashrecords.each do |cash_record| %>
@@ -45,16 +44,15 @@
         <h2>Cash-Out Records</h2>
         <div class= "row">
               <div class= "col">
-                <strong>Category:</strong><br>
+                <strong>Category:</strong>
               </div>
               <div class= "col">
-                <strong>Amount:</strong><br>
+                <strong>Amount:</strong>
               </div>
               <div class= "col">
-                <strong>Notes:</strong><br>
+                <strong>Notes:</strong>
               </div>
               <div class= "col">
-                <strong>Delete</strong><br>
               </div>
           </div><br>
           <% @cashrecords.each do |cash_record| %>
@@ -70,7 +68,7 @@
                   <%= cash_record.notes %>
                 </div>
                 <div class= "col">
-                  <%= button_to "Delete", cashout_path(@cashrecord), method: :delete, 
+                  <%= button_to "Delete", cashout_path( params: { id: cash_record.id} ), method: :delete, 
                   class: "btn btn-danger",
                   data: { turbo_confirm: "Are you sure?" } %><br>
               </div>

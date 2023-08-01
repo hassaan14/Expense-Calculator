@@ -1,15 +1,14 @@
 <head>
 <%= stylesheet_link_tag 'propertyrecord' %>
-
 </head>
 <h1>Expense Calculator</h1>
 
-<div class= "container">
-<h2>List Property Records</h2><br>
+<div class= "container-fluid">
 
 <div class="row">
-
 <div class="col">
+<h2>List Property Records</h2>
+
 <ul class="property_list">
     <% @propertyrecords.each do |property| %>
         <li class="property_item">

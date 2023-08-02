@@ -1,0 +1,37 @@
+<h1>Trash Property Record</h1>
+<div class= "container">
+  <div class="row">
+
+  <div class="col-3">
+    <h2>Name</h2>
+  </div>
+  <div class="col-9">
+    <h2>Description</h2>
+  </div>
+</div>
+<% @archived_propertyrecords.each do |property| %>
+    <div class="row">
+
+  <div class="col-3">
+    <%= link_to property.name, property, class: "property_link" %>
+  </div>
+  <div class="col-3">
+    <%= link_to property.description, property, class: "property_link" %>
+  </div>
+
+  <div class="col-3">
+  <% if property.archived? %>
+    <%= button_to "Restore", restore_propertyrecord_path(id: property.id), 
+    method: :patch, class: "btn btn-light", 
+    data: { turbo_confirm: "Are you sure to Restore" } %>
+  </div>
+
+  <div class="col-3">
+    <%= button_to "Delete Permanent", destroy_permanent_path(id: property.id), 
+    method: :delete, class: "btn btn-danger", 
+    data: { turbo_confirm: "Are you sure to Permanent Delete" } %>
+  </div>
+  <% end %>
+  </div><br>
+<% end %>
+</div>
